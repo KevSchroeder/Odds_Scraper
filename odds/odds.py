@@ -10,7 +10,7 @@ def get_odds(url):
     if response.status_code == 200:
         soup = BeautifulSoup(response.content, "html.parser")
         odds_data = soup.find_all(
-            "div", class_="odds"
+            "div", id="game_category_Passing Props" #data-testid as source?
         )  # Adjust class or tag based on website structure
         odds = [float(odds.get_text()) for odds in odds_data]
         return odds
